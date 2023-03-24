@@ -14,8 +14,10 @@ seed()
 function getUsers() {
   return [
     {
-      fullname: 'ADMIN',
+      name: 'SUPER ADMIN',
       cpf: '940.182.650-18',
+      password: '12341234',
+      phone: '16982161856',
       role: 'ADMIN'
     }
   ]
