@@ -1,28 +1,18 @@
 import type { User } from "@prisma/client"
 import { useLoaderData } from "react-router"
+import { Users } from "~/features/User/components/Users"
 import { getUsers } from "~/features/User/User.api"
 
 export async function loader() {
   return await getUsers()
 }
 
-export default function Users() {
+export default function() {
   const users = useLoaderData() as User[]
 
-  return (
-    <>
-      <h1>Usuários</h1>
-      {users.map((user) => {
-        return <p key={user.id}><b>{user.name}</b></p>
-      })}
-    </>
-  )
+  return <Users users={users}/>
 }
 
 export const ErrorBoundary = () => <h3>Whoops!</h3>
 
 export const CatchBoundary = () => <h3>Not found!</h3>
-
-//export const action: ActionFunction = async ({ params }) => {
-//  return{}
-//}
